@@ -1,0 +1,291 @@
+/* Ajuste do main para garantir que o conteúdo seja exibido sem cortar */
+main {
+    min-height: calc(100vh - 160px);
+    padding: 20px;
+}
+
+/* Estilo do corpo da página */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    background: linear-gradient(to bottom, #000000, #5b78cf); /* Degradê de azul */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../imagem/fundo_virado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+/* Ajuste do container de cards para ficar alinhado */
+.wrapper-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Ajuste da barra de pesquisa para centralizá-la */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px; /* Espaçamento entre o campo e o botão */
+}
+
+/* Input da pesquisa */
+#pokemon-search {
+    max-width: 300px;
+    width: 100%;
+    padding: 7px;
+    border-radius: 15px;
+    border: 1px solid #102983;
+    font-size: 1rem;
+    flex: 1; /* Faz o input ocupar o máximo de espaço possível */
+}
+
+/* Botão de busca */
+#search-button {
+    padding: 7px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 0 0 100px; /* Define uma largura fixa para o botão */
+}
+
+/* Efeito de hover no botão */
+#search-button:hover {
+    background-color: #ecd90a;
+}
+
+/* Garantir que o header tenha um espaçamento inferior */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Para alinhar itens nas extremidades */
+    align-items: center; /* Para centralizar verticalmente */
+    padding: 10px; /* Ajuste o espaçamento conforme necessário */
+}
+
+.header-logo {
+    max-width: 25vw;
+}
+
+/* Estilo do overlay do modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+/* Botão de fechar o modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Removido: Botões de navegação */
+.navbar {
+    width: 100%;
+    padding-left: 0; /* Remove padding se houver */
+    padding-right: 0; /* Remove padding se houver */
+}
+.navbar-nav .nav-link:hover {
+    color: yellow !important; /* Altera a cor do texto para amarelo ao passar o mouse */
+}
+
+footer {
+    width: 100%;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Cards */
+.card {
+    border: 1px solid #ddd; /* Borda suave */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animação para efeito ao passar o mouse */
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    text-align: center; /* Centraliza o conteúdo */
+    max-width: 250px; /* Largura máxima dos cards */
+}
+
+/* Efeito de hover nos cards */
+.card:hover {
+    transform: translateY(-10px); /* Card sobe levemente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Imagem dos Pokémons */
+.card img {
+    width: 100px; /* Tamanho padrão da imagem */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Título do Pokémon */
+.card h5 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Descrição do Pokémon */
+.card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Botão "Ver mais" */
+.card a {
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.card a:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; /* Em telas menores, os cards ocupam toda a largura */
+    }
+}
+/* Barra de navegação principal */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #003A70; /* Azul Escuro */
+    color: #FFFFFF; /* Texto branco */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Logo / Título da barra */
+.navbar-brand a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFCB05; /* Amarelo Vibrante */
+    text-decoration: none;
+}
+
+/* Links do menu */
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu li {
+    list-style: none;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #FFFFFF; /* Texto branco */
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar-menu a:hover {
+    background-color: #FFCB05; /* Amarelo vibrante ao passar o mouse */
+    color: #003A70; /* Azul Escuro */
+    border-radius: 5px;
+}
+
+/* Link ativo */
+.navbar-menu .active {
+    background-color: #FFCB05;
+    color: #003A70;
+    border-radius: 5px;
+}
+
+/* Botão de toggle para o menu em mobile */
+.navbar-toggle {
+    display: none; /* Inicialmente escondido */
+    cursor: pointer;
+}
+
+.navbar-toggle-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #FFF;
+    display: block;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar-menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #003A70;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        display: none; /* Escondido até ser aberto pelo toggle */
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    /* Mostrar o menu quando a classe 'open' for adicionada */
+    .navbar-menu.open {
+        display: flex;
+    }
+}
+
+

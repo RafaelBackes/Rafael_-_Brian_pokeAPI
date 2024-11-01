@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="icon" type="image/x-icon" href="src/assets/images/Poké_Ball_icon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/comparador.css">
+</head>
+<body>
+<section id="comparison-section" class="comparison-container container mt-5">
+    <div class="comparison-header text-center mb-4">
+        <h2>Comparar Pokémon</h2>
+    </div>
+    <div class="row comparison-cards">
+        <div id="pokemon-card-1" class="col-md-6 comparison-card">
+            <!-- Detalhes da primeira carta serão carregados aqui -->
+        </div>
+        <div id="pokemon-card-2" class="col-md-6 comparison-card">
+            <!-- Detalhes da segunda carta serão carregados aqui -->
+        </div>
+    </div>
+    <div class="comparison-actions text-center mt-4">
+        <button id="compare-button" class="btn btn-success">Comparar</button>
+    </div>
+    <main>
+        <div class="container mt-4 text-center search-container">
+            <input type="text" id="pokemon-search" class="form-control d-inline-block w-50" placeholder="Digite o nome ou número do Pokémon">
+            <button id="search-button" class="btn btn-primary mt-2">Buscar</button>
+        </div>
+        <div class="wrapper-content mt-4" id="pokemon-list">
+            <!-- Aqui são carregados os cards dos Pokémon -->
+        </div>
+    </main>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="module" src="src/js/main.js"></script>
+</body>
+</html>
