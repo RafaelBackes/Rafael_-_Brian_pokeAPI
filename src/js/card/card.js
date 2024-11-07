@@ -41,9 +41,9 @@ export async function createCard(pokemon, index) {
 
         const image = document.createElement("img");
         image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`;
-        image.classList.add("card-img-top");
+        image.classList.add("card-img-top", "d-block", "mx-auto");
         image.alt = pokemon.name;
-
+        
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
 

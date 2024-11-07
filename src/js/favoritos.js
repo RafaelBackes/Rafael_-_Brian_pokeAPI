@@ -30,23 +30,55 @@ async function createFavoriteCard(index, container) {
         // Criar o card
         const card = document.createElement('div');
         card.classList.add('col-md-3', 'mb-4');
-
         card.innerHTML = `
-            <div class="card" style="width: 18rem;">
-                <img src="${pokemon.sprites.front_default}" class="card-img-top" alt="${pokemon.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${pokemon.name}</h5>
-                    <p class="card-text">#${pokemon.id}</p>
-                    <button class="btn btn-danger" onclick="removeFromFavorites(${pokemon.id})">Excluir</button>
-                </div>
+        <div class="card" style="width: 18rem;">
+            <img src="${pokemon.sprites.front_default}" class="card-img-top d-block mx-auto" alt="${pokemon.name}">
+            <div class="card-body">
+                <h5 class="card-title text-center">${pokemon.name}</h5>
+                <p class="card-text text-center">#${pokemon.id}</p>
+                <button class="btn btn-primary d-block mx-auto mb-2" onclick="searchPokemon(${pokemon.id})">Ver mais</button>
+                <button class="btn btn-danger d-block mx-auto" onclick="removeFromFavorites(${pokemon.id})">Excluir</button>
             </div>
-        `;
+        </div>
+    `;
+    
 
         container.appendChild(card);
     } catch (error) {
         console.error('Erro ao criar o card:', error);
     }
 }
+
+async function searchPokemon(pokemonId) {
+    try {
+        // Buscar as informações do Pokémon completo
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar Pokémon');
+        }
+        const pokemon = await response.json();
+
+        // Buscar detalhes adicionais como as habilidades e tipos
+        const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}`);
+        const speciesData = await speciesResponse.json();
+        const descriptionEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === "en");
+        const description = descriptionEntry ? descriptionEntry.flavor_text.replace(/\n|\f/g, ' ') : "Descrição não disponível.";
+
+        // Exibir as informações detalhadas no container
+        const detailsContainer = document.getElementById('pokemon-details');
+        detailsContainer.innerHTML = `
+            <h2>${pokemon.name}</h2>
+            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+            <p><strong>ID:</strong> #${pokemon.id}</p>
+            <p><strong>Tipos:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
+            <p><strong>Habilidades:</strong> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
+            <p><strong>Descrição:</strong> ${description}</p>
+        `;
+    } catch (error) {
+        console.error('Erro ao buscar informações detalhadas do Pokémon:', error);
+    }
+}
+
 
 // Função para remover um Pokémon dos favoritos
 function removeFromFavorites(id) {

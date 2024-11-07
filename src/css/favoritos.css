@@ -1,6 +1,13 @@
 .pok_image{
     max-width: 25vw;
     
-   
+    .pokemon-details-container {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    
     
 }
