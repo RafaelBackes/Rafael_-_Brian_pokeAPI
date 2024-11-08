@@ -330,3 +330,30 @@ footer {
     background-color: #003A70;  /* Cor de fundo ao passar o mouse */
     color: #FFCB05;  /* Texto em amarelo ao passar o mouse */
 }
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: white;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#loading h1 {
+    animation: fadeIn 2s infinite;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
