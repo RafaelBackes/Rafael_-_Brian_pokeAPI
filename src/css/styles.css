@@ -194,11 +194,18 @@ footer {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 10px 15px ;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s;
     text-decoration: none;
+    
+}
+
+@media (width < 770px) {
+    .favoritar{
+        margin-left: 8px;
+    }        
 }
 
 .card a:hover {

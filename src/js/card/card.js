@@ -64,7 +64,8 @@ export async function createCard(pokemon, index) {
 
         // Botão de Favoritar
         const favoriteButton = document.createElement("button");
-        favoriteButton.classList.add("btn", "btn-outline-warning", "mt-2");
+        favoriteButton.classList.add("favoritar")
+        favoriteButton.classList.add("btn", "btn-outline-warning", "mt-md-2" ,);
         favoriteButton.innerHTML = '<i class="bi bi-star"></i> Favoritar';
         favoriteButton.id = `favorite-button-${index}`;
 
