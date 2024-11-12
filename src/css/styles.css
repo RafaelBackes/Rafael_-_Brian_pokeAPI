@@ -128,7 +128,7 @@ body {
     font-weight: bold;
     font-size: 18px;
     transition: background-color 0.3s ease, color 0.3s ease;  /* Efeitos de transição */
-    margin-left: 10px;  /* Adiciona um pequeno espaçamento à esquerda */
+   
 }
 .navbar-nav .nav-link:hover {
    /* color: yellow !important; /* Altera a cor do texto para amarelo ao passar o mouse */
@@ -141,6 +141,7 @@ body {
     font-size: 18px;
     transition: background-color 0.3s ease, color 0.3s ease;  /* Efeitos de transição */
     margin-left: 10px;  /* Adiciona um pequeno espaçamento à esquerda */
+    margin-top: 5px;
 }
 
 footer {
@@ -278,6 +279,7 @@ footer {
 .navbar-toggle {
     display: none; /* Inicialmente escondido */
     cursor: pointer;
+    
 }
 
 .navbar-toggle-icon {
@@ -285,7 +287,7 @@ footer {
     height: 3px;
     background-color: #FFF;
     display: block;
-    margin: 6px 0;
+    margin: 6px 0 5px;
     transition: all 0.3s ease;
 }
 
@@ -356,4 +358,20 @@ footer {
     100% {
         opacity: 1;
     }
+}
+.nav-link-custom {
+    color: #FFCB05;
+    margin-top: 5px;
+}
+.navbar-light .navbar-toggler{
+    background-color: #FFCB05;
+    border-color:#FFCB05;
+}
+
+.navbar-light .navbar-nav .nav-link.nav-link-custom{
+    color: #FFCB05;
+}
+.navbar-toggler{
+    color: #FFCB05;
+    background-color: #FFCB05;
 }

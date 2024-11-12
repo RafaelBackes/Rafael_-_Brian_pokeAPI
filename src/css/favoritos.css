@@ -11,3 +11,13 @@
     
     
 }
+
+.btn-primary{
+    color: #000000;
+    background-color: #FFCB05;
+
+    &:hover {
+        color: #000000;
+        background-color: #FFCB05;
+    }
+}
