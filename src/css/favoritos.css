@@ -21,3 +21,19 @@
         background-color: #FFCB05;
     }
 }
+.text-center {
+    font-size: 1rem; /* Tamanho maior para destacar */
+    font-weight: 700; /* Negrito */
+    color: #FFCB05; /* Cor laranja, combinando com tema Pokémon */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    margin-bottom: 20px; /* Distância entre o título e o conteúdo abaixo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra no texto */
+}
+
+/* Responsividade: ajusta o tamanho da fonte para telas menores */
+@media (max-width: 768px) {
+    .text-center {
+        font-size: 1.5rem; /* Menor em telas pequenas */
+    }
+}

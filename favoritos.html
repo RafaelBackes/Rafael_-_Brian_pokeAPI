@@ -23,21 +23,30 @@
     <header>
         <img class="pok_image" src="src/assets/images/pokemon-title.svg" alt="Logo Pokemon">
     </header>
-    <main>
-        <div class="container mt-4" id="pokemon-list-favorites">
-            <h3 class="text-center">Veja abaixo seus Pokémons favoritos</h3>
-            <div class="row" id="favorites-container">
-                <!-- Pokémon Favoritos serão carregados aqui -->
+    <div id="pokemon-modal" class="modal-overlay d-none">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span> 
+            <div id="modal-body">
+                <!-- Os detalhes do Pokémon serão carregados aqui -->
             </div>
         </div>
+    </div>
+    <main>
+        <!-- <div class="container mt-4" id="pokemon-list-favorites">
+            <h3 class="text-center">Veja abaixo seus Pokémons favoritos</h3>
+            <div class="row" id="favorites-container">
+                 Pokémon Favoritos serão carregados aqui
+            </div>
+        </div> -->
+        <h3 class="text-center">Veja abaixo seus Pokémons favoritos</h3>
+        <div class="wrapper-content mt-4" id="favorites-container"></div>
+            <!-- Aqui são carregados os cards dos Pokémon -->
+        </div>
     </main>
-
     <script src="src/js/favoritos.js"></script>
+    
 </body>
-<div id="pokemon-details" class="pokemon-details-container">
-    <!-- As informações detalhadas do Pokémon serão injetadas aqui -->
-</div>
-<button class="btn btn-primary" onclick="searchPokemon(1)">Ver mais</button> <!-- ID de Bulbasaur -->
+<!--<button class="btn btn-primary" onclick="searchPokemon(1)">Ver mais</button> ID de Bulbasaur -->
 
 
 </html>

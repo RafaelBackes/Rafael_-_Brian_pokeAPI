@@ -1,3 +1,4 @@
+
 // Função para carregar os Pokémon favoritos
 async function loadFavoritePokemons() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -29,9 +30,9 @@ async function createFavoriteCard(index, container) {
 
         // Criar o card
         const card = document.createElement('div');
-        card.classList.add('col-md-3', 'mb-4');
+        // card.classList.add('col-12', 'col-md-6', 'col-xl-4', 'mb-4');
         card.innerHTML = `
-        <div class="card" style="width: 18rem;">
+        <div class="card mx-auto" style="width: 18rem;" id="card-${pokemon.id}">
             <img src="${pokemon.sprites.front_default}" class="card-img-top d-block mx-auto" alt="${pokemon.name}">
             <div class="card-body">
                 <h5 class="card-title text-center">${pokemon.name}</h5>
@@ -53,6 +54,9 @@ async function searchPokemon(pokemonId) {
     try {
         // Buscar as informações do Pokémon completo
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+        const modal = document.getElementById('pokemon-modal');
+        const modalBody = document.getElementById('modal-body');
+        
         if (!response.ok) {
             throw new Error('Erro ao buscar Pokémon');
         }
@@ -65,7 +69,7 @@ async function searchPokemon(pokemonId) {
         const description = descriptionEntry ? descriptionEntry.flavor_text.replace(/\n|\f/g, ' ') : "Descrição não disponível.";
 
         // Exibir as informações detalhadas no container
-        const detailsContainer = document.getElementById('pokemon-details');
+        const detailsContainer = document.getElementById('modal-body');
         detailsContainer.innerHTML = `
             <h2>${pokemon.name}</h2>
             <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
@@ -74,6 +78,12 @@ async function searchPokemon(pokemonId) {
             <p><strong>Habilidades:</strong> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
             <p><strong>Descrição:</strong> ${description}</p>
         `;
+
+        const bla = document.getElementById("pokemon-modal");
+        bla.classList.remove("d-none");
+        document.getElementById('close-modal').addEventListener('click', (event) => {
+            bla.classList.add('d-none');
+        });
     } catch (error) {
         console.error('Erro ao buscar informações detalhadas do Pokémon:', error);
     }
@@ -91,7 +101,9 @@ function removeFromFavorites(id) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     
     // Recarregar a lista de favoritos na página
-    loadFavoritePokemons();
+    //loadFavoritePokemons();
+    const cardToDelete = document.getElementById(`card-${id}`);
+    cardToDelete.parentElement.remove();
 }
 
 // Carregar Pokémon favoritos quando a página for carregada

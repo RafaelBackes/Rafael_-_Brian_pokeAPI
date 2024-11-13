@@ -196,7 +196,7 @@ function capitalizeFirstLetter(string) {
 }
 
 // Função para fechar o modal
-function closeModal() {
+export function closeModal() {
     const modal = document.getElementById('pokemon-modal');
     modal.classList.add('d-none');
 }
